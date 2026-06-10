@@ -25,6 +25,16 @@ pytest
 | Code review | Gemini AI | Every PR |
 | SBOM | CycloneDX | Every release |
 
-## License
+## Project Structure
 
-MIT
+```
+├── src/
+│   └── my_app/
+│       ├── __init__.py
+│       └── main.py           # Entry point + greeting function
+├── tests/
+│   ├── __init__.py
+│   └── test_greeting.py      # pytest test
+├── pyproject.toml
+└── .github/                  # CI/CD + policies
+```

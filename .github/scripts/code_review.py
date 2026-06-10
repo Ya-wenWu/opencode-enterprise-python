@@ -2,9 +2,11 @@
 
 import os
 import sys
+
 import httpx
 
-PROMPT = """You are a Staff Software Engineer conducting code review at Google Staff Engineer standards.
+PROMPT = """You are a Staff Software Engineer conducting code review \
+at Google Staff Engineer standards.
 
 ## Checklist
 - Design: well-scoped, fits architecture
@@ -25,7 +27,10 @@ Quote exact lines. Praise good code. If clean, say LGTM."""
 def main():
     api_key = os.environ.get("GOOGLE_API_KEY")
     if not api_key:
-        print("⚠️ GOOGLE_API_KEY not available (fork PR from external contributor). Skipping AI review.")
+        print(
+            "⚠️ GOOGLE_API_KEY not available "
+            "(fork PR from external contributor). Skipping AI review."
+        )
         return
     if len(sys.argv) < 2:
         print("Usage: code_review.py <diff_file> [title]", file=sys.stderr)
@@ -60,7 +65,8 @@ def main():
             return
         raise
     data = resp.json()
-    text = (data.get("candidates") or [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+    parts = (data.get("candidates") or [{}])[0].get("content", {}).get("parts", [{}])
+    text = parts[0].get("text", "") if parts else ""
     print(text or "⚠️ Empty response.")
 
 
