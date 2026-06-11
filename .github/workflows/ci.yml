@@ -39,7 +39,7 @@ jobs:
         uses: actions/dependency-review-action@v5
 
   build:
-    needs: [security, dependency-review]
+    needs: [security]
     runs-on: ubuntu-latest
     strategy:
       matrix:
