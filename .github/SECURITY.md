@@ -6,8 +6,11 @@ Only the latest release receives security patches.
 
 ## Reporting a Vulnerability
 
-Open a GitHub Issue with `[SECURITY]` prefix (private). Do not file
-public issues for active vulnerabilities.
+Use GitHub's **Private Vulnerability Reporting** at:
+
+https://github.com/Ya-wenWu/opencode-enterprise-python/security/advisories
+
+Do **not** file public issues for active vulnerabilities.
 
 ## Response
 
